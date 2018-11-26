@@ -1,0 +1,11 @@
+.user-date {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.step-actions__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}

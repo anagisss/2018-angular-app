@@ -1,0 +1,55 @@
+<form [formGroup]="userForm">
+  <div class="user-login">
+    <div class="user-login__item">
+      <mat-icon>mail</mat-icon>
+      <mat-form-field class="example-full-width user-login__item-field">  
+        <input 
+          matInput
+          type="email" 
+          placeholder="Your Email"
+          formControlName="email"
+          required>
+        <mat-error >
+          Введены некорректные данные
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="user-login__item">
+      <mat-form-field class="user-login__item-field">
+        <mat-select placeholder="Country" formControlName="country">
+          <mat-option *ngFor="let country of countries$ | async as countries" [value]="country.name">
+            {{country.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="user-login__item">
+      <mat-icon>lock_outlined</mat-icon>
+      <mat-form-field class="example-full-width user-login__item-field">
+        <input 
+          matInput
+          type="password" 
+          placeholder="Your Password"
+          formControlName="password"
+          required>
+        <mat-error >
+          Введены некорректные данные
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div class="step-actions">
+    <button mat-stroked-button color="primary" class="button" (click)="onBackButtonClick()">Назад</button>
+    <div class="step-actions__item">
+      <mat-error *ngIf="clickButton && userForm.invalid ">
+        Неверно заполнены данные
+      </mat-error>
+      <button mat-flat-button color="primary" class="button" (click)="onNextButtonClick()">Вперед</button>
+    </div>
+  </div>
+
+</form>

@@ -1,0 +1,36 @@
+<form [formGroup]="dateTime">
+  <div class="user-date">
+    <mat-form-field class="example-full-width user-date__item">  
+      <input 
+        matInput
+        type="date" 
+        placeholder="Выберите дату"
+        formControlName="date"
+        required>
+      <mat-error >
+        Введены некорректные данные
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width user-date__item">  
+      <input 
+        matInput
+        type="time" 
+        placeholder="Выберите время"
+        formControlName="time"
+        required>
+      <mat-error >
+        Введены некорректные данные
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="step-actions">
+    <button mat-stroked-button color="primary" class="button" (click)="onBackButtonClick()">Назад</button>
+    <div class="step-actions__item">
+      <mat-error *ngIf="clickButton && dateTime.invalid ">
+        Неверно заполнены данные
+      </mat-error>
+      <button mat-flat-button color="primary" class="button" (click)="onNextButtonClick()">Вперед</button>
+    </div>
+  </div>
+</form>
