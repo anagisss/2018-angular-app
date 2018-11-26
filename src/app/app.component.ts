@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { WizardService } from './common/services/wizard.service';
+import { IWizardData } from './common/types/wizard-data';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,33 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Wizard';
+
+  // ui
+  public wizard: IWizardData;
+  public currentStep: string = '';
+
+  public constructor(
+    private _wizardService: WizardService,
+    private _router: Router,
+  ) {
+  }
+
+  public ngOnInit(): void {
+    this._router.events.subscribe(() => {
+      this.currentStep = this._router.url.replace('/','');
+      console.log('this.currentStep', this.currentStep);
+
+    });
+
+    this.wizard = this._wizardService.wizard;
+    console.log(this.wizard);
+
+  }
+
+  public isCompletedStep(stepName: string): boolean {
+    const currentStepNumber: number = +this.currentStep[this.currentStep.length - 1];
+    const stepNumber: number = +stepName[stepName.length - 1];
+    return currentStepNumber > stepNumber;
+  }
+
 }
