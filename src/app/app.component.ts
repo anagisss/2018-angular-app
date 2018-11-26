@@ -23,13 +23,10 @@ export class AppComponent {
   public ngOnInit(): void {
     this._router.events.subscribe(() => {
       this.currentStep = this._router.url.replace('/','');
-      console.log('this.currentStep', this.currentStep);
 
     });
 
     this.wizard = this._wizardService.wizard;
-    console.log(this.wizard);
-
   }
 
   public isCompletedStep(stepName: string): boolean {
