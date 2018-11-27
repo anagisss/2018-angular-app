@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatButtonModule,
+         MatCardModule,
          MatIconModule,
          MatInputModule,
          MatSelectModule,
@@ -36,6 +37,7 @@ import { StepResultComponent } from './components/step-result/step-result.compon
     FormsModule,
     HttpClientModule,
     MatButtonModule,
+    MatCardModule,
     MatDialogModule,
     MatIconModule,
     MatInputModule,

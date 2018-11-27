@@ -28,8 +28,7 @@ export const step3: IWizardDateTime = {
   number: 3,
   name: 'step-3',
   data: {
-    date: '',
-    time: '',
+    datetime: '',
   }
 }
 
@@ -44,7 +43,6 @@ export const step4: IWizardStepResult = {
       name: '',
       code: '',
     },
-    date: '',
-    time: '',
+    datetime: '',
   }
 }

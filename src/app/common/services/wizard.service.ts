@@ -37,8 +37,7 @@ export class WizardService {
   }
 
   public updatedateTime(dateTime) {
-    this._wizard.steps[2].data.date = dateTime.value.date;
-    this._wizard.steps[2].data.time = dateTime.value.time;
+    this._wizard.steps[2].data.datetime = dateTime.value.datetime;
   }
 
   public generateWizardResult() {
@@ -46,8 +45,7 @@ export class WizardService {
     this._wizard.steps[3].data.mail = this._wizard.steps[1].data.mail;
     this._wizard.steps[3].data.password = this._wizard.steps[1].data.password;
     this._wizard.steps[3].data.country.name = this._wizard.steps[1].data.country.name;
-    this._wizard.steps[3].data.date = this._wizard.steps[2].data.date;
-    this._wizard.steps[3].data.time = this._wizard.steps[2].data.time;
+    this._wizard.steps[3].data.datetime = this._wizard.steps[2].data.datetime;
   }
   
 }

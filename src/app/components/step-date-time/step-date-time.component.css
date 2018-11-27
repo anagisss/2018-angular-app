@@ -1,11 +1,56 @@
 .user-date {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
 }
 
-.step-actions__item {
+.user-date-input {
+  width: 200px;
+}
+
+.user-date-timer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 30px 0 30px;
+}
+
+.user-date-timer__item {
+  width: 23%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.user-date-timer__item-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  font-size: 40px;
+}
+
+.user-date-timer__item-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  font-size: 16px;
+  color: #fff;
+  background-color: rgb(206, 82, 25);
+}
+
+.step-actions__next-button {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  justify-content: center;
+}
+
+.step-actions__timer-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

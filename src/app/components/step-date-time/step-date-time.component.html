@@ -1,36 +1,76 @@
 <form [formGroup]="dateTime">
   <div class="user-date">
-    <mat-form-field class="example-full-width user-date__item">  
+    <mat-form-field class="example-full-width user-date-input">  
       <input 
         matInput
-        type="date" 
-        placeholder="Выберите дату"
-        formControlName="date"
+        type="datetime-local" 
+        placeholder="Выберите дату и время"
+        formControlName="datetime"
         required>
-      <mat-error >
+      <mat-error>
         Введены некорректные данные
       </mat-error>
     </mat-form-field>
-    <mat-form-field class="example-full-width user-date__item">  
-      <input 
-        matInput
-        type="time" 
-        placeholder="Выберите время"
-        formControlName="time"
-        required>
-      <mat-error >
-        Введены некорректные данные
+  
+    <div class="user-date-timer" id="timer">
+      <mat-card class="example-card user-date-timer__item">
+        <mat-card-content class="user-date-timer__item-content">
+          <span id="days"></span>
+        </mat-card-content>
+        <mat-card-title class="user-date-timer__item-title">Days</mat-card-title>
+      </mat-card>
+      <mat-card class="example-card user-date-timer__item">
+        <mat-card-content class="user-date-timer__item-content">
+          <span id="hours"></span>
+        </mat-card-content>
+        <mat-card-title class="user-date-timer__item-title">Hours</mat-card-title>
+      </mat-card>
+      <mat-card class="example-card user-date-timer__item">
+        <mat-card-content class="user-date-timer__item-content">
+          <span id="minutes"></span>
+        </mat-card-content>
+        <mat-card-title class="user-date-timer__item-title">Minutes</mat-card-title>
+      </mat-card>
+      <mat-card class="example-card user-date-timer__item">
+        <mat-card-content class="user-date-timer__item-content">
+          <span id="seconds"></span>
+        </mat-card-content>
+        <mat-card-title class="user-date-timer__item-title">Seconds</mat-card-title>
+      </mat-card>
+    </div>
+
+    <div class="step-actions__timer-button">
+      <mat-error *ngIf="clickTimerButton">
+        Введите дату и время больше 1 минуты от текущего времени.
       </mat-error>
-    </mat-form-field>
+      <button 
+        mat-flat-button 
+        color="accent" 
+        class="button" 
+        (click)="onTimerButtonClick()"
+        >Запустить таймер</button>
+    </div>
   </div>
 
   <div class="step-actions">
-    <button mat-stroked-button color="primary" class="button" (click)="onBackButtonClick()">Назад</button>
-    <div class="step-actions__item">
-      <mat-error *ngIf="clickButton && dateTime.invalid ">
+    <button
+      mat-stroked-button
+      color="primary"
+      class="button"
+      (click)="onBackButtonClick()"
+      >Назад</button>
+
+    <div class="step-actions__next-button">
+      <mat-error *ngIf="clickNextButton && dateTime.invalid ">
         Неверно заполнены данные
       </mat-error>
-      <button mat-flat-button color="primary" class="button" (click)="onNextButtonClick()">Вперед</button>
+      <button
+        mat-flat-button
+        color="primary"
+        class="button"
+        (click)="onNextButtonClick()"
+        >Вперед</button>
     </div>
   </div>
+
 </form>

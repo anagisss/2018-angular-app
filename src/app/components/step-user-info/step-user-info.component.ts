@@ -29,7 +29,7 @@ export class StepUserInfoComponent implements OnInit {
   ngOnInit() {
     this.userForm = new FormGroup({
       'email': new FormControl(this._wizardService.wizard.steps[1].data.mail, Validators.required),
-      'country': new FormControl(this._wizardService.wizard.steps[1].data.country, Validators.required),
+      'country': new FormControl(this._wizardService.wizard.steps[1].data.country.name, Validators.required),
       'password': new FormControl(this._wizardService.wizard.steps[1].data.password, Validators.required),
     });
   }

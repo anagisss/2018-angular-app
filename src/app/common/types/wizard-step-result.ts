@@ -9,7 +9,6 @@ export interface IWizardStepResult extends IWizardStep {
       name: string;
       code: string;
     }
-    date: string;
-    time: string;
+    datetime: string;
   }
 }
